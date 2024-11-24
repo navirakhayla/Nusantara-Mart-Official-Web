@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusantara Mart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Nusantara Mart</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#transactions">Transactions</a></li>
+                <li><a href="#loyalty">Loyalty Points</a></li>
+                <li><a href="#" onclick="toggleLoginModal()">Login</a></li>
+            </ul>
+        </nav>
+        <div id="profileIcon" class="profile-icon" style="display: none;">
+            <img src="https://assets.onecompiler.app/42yhzu7we/42z33y2h8/images.png" alt="User Profile">
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Nusantara Mart</h2>
+            <p>Belanja kebutuhan sehari-hari kini lebih mudah dan nyaman!</p>
+            <button class="cta-btn" onclick="scrollToSection('products')">Shop Now</button>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://assets.onecompiler.app/42yhzu7we/42yxjk8bf/beras.jpg" alt="Rice 5 Kg">
+                <h3>Rice 5 Kg</h3>
+                <p>Rp 60,000</p>
+                <button onclick="addToCart('Rice 5 Kg', 60000, 'https://assets.onecompiler.app/42yhzu7we/42yxjk8bf/beras.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://assets.onecompiler.app/42yhzu7we/42yxjk8bf/minyak.jpg" alt="Cooking Oil 1L">
+                <h3>Cooking Oil 1L</h3>
+                <p>Rp 25,000</p>
+                <button onclick="addToCart('Cooking Oil 1L', 25000, 'https://assets.onecompiler.app/42yhzu7we/42yxjk8bf/minyak.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://assets.onecompiler.app/42yhzu7we/42yxjk8bf/gula.jpeg" alt="Sugar 1 Kg">
+                <h3>Sugar 1 Kg</h3>
+                <p>Rp 18,000</p>
+                <button onclick="addToCart('Sugar 1 Kg', 18000, 'https://assets.onecompiler.app/42yhzu7we/42yxjk8bf/gula.jpeg')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="transactions" class="transactions">
+        <h2>Transaction Summary</h2>
+        <table id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3">Your cart is empty</td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="checkoutBtn" onclick="checkout()" disabled>Checkout</button>
+    </section>
+
+    <section id="loyalty" class="loyalty">
+        <h2>Loyalty Points</h2>
+        <div class="loyalty-container">
+            <p>You have <span id="points">0</span> loyalty points.</p>
+            <p>For every Rp 10,000 spent, earn 1 point! Redeem points for discounts on your next purchase!</p>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleLoginModal()">&times;</span>
+            <h2>Login or Sign Up</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <label for="loginChoice">Login With:</label>
+                <select id="loginChoice" required>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone Number</option>
+                </select>
+                <label id="inputLabel" for="loginInput">Email</label>
+                <input type="text" id="loginInput" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Nusantara Mart. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
